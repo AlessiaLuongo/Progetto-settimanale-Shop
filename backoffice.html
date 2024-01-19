@@ -62,6 +62,11 @@
       </nav>
     </header>
     <main>
+      <div id="ultimatum" class="w-40 d-none">
+        <p>Sei sicuro di voler proseguire?</p>
+        <button class="btn btn-danger" id="yes-button">Si</button>
+        <button class="btn btn-danger" id="no-button">No</button>
+      </div>
       <div class="container">
         <div class="row justify-content-center">
           <div class="col col-12 col-md-6">
@@ -123,7 +128,7 @@
               <button type="submit" class="btn btn-primary" id="add-button">
                 Crea prodotto
               </button>
-              <button type="submit" class="btn btn-primary" id="reset-button">
+              <button class="btn btn-primary" type="button" id="reset-button">
                 Resetta il form
               </button>
             </form>

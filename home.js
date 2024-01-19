@@ -3,15 +3,15 @@ const myUrl = "https://striveschool-api.herokuapp.com/api/product/";
 const generateProduct = function (data) {
   data.forEach((cd) => {
     const newCol = document.createElement("div");
-    newCol.classList.add("col", "col-12", "col-md-4", "col-lg-3");
-    newCol.innerHTML = `<div class="card h-100">
+    newCol.classList.add("col", "col-12", "col-md-4", "col-lg-3", "g-5");
+    newCol.innerHTML = `<div class="card h-100 ">
         <img src="${cd.imageUrl}" class="card-img-top" alt="album">
         <div class="card-body">
           <h6 class="card-title">${cd.brand}</h6>
       <h4 class="card-title">${cd.name}</h4>
           <p class="card-text">${cd.description}</p>
           <div>
-              <a href="#" class="btn btn-primary">€ ${cd.price}</a>
+              <a href="#" class="btn btn-primary" id="buy-button">€ ${cd.price}</a>
               <a href="./details.html?cdId=${cd._id}" class="btn btn-success"><i class="bi bi-caret-right"></i></i>
                Scopri di più 
               </a>

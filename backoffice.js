@@ -83,21 +83,38 @@ creationForm.addEventListener("submit", function (e) {
         bandNameInput.value = "";
         pictureInput.value = "";
         priceInput.value = "";
-      } else {
-        alert("Qualcosa è andato storto");
       }
     })
     .then(alert("Salvato con successo"), window.location.replace("./home.html"))
     .catch((err) => {
-      console.error("Error:", err);
+      console.log(err);
     });
 });
 
 let resetButton = document.getElementById("reset-button");
 resetButton.addEventListener("click", function () {
+  toggleDiv();
+});
+
+const toggleDiv = function () {
+  document.getElementById("ultimatum").classList.toggle("d-none");
+};
+const reset = function () {
   cdNameInput.value = "";
   descriptionInput.value = "";
   bandNameInput.value = "";
   pictureInput.value = "";
   priceInput.value = "";
+};
+
+let yesButton = document.getElementById("yes-button");
+let noButton = document.getElementById("no-button");
+
+yesButton.addEventListener("click", function () {
+  reset();
+  toggleDiv();
+});
+
+noButton.addEventListener("click", function () {
+  toggleDiv();
 });

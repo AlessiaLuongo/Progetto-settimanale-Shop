@@ -28,7 +28,7 @@ fetch(myUrl + "/" + productId, {
     document.getElementById("price").innerText = cd.price;
 
     document.getElementById("delete").addEventListener("click", function () {
-      deleteAlbum();
+      toggleDiv();
     });
     document
       .getElementById("edit")
@@ -38,9 +38,10 @@ fetch(myUrl + "/" + productId, {
     console.log(err);
   });
 
-const annulla = function () {
+const toggleDiv = function () {
   document.getElementById("ultimatum").classList.toggle("d-none");
 };
+
 const deleteAlbum = function () {
   console.log("ciao");
   fetch(myUrl + "/" + productId, {
@@ -63,3 +64,14 @@ const deleteAlbum = function () {
       console.log(err);
     });
 };
+
+let yesButton = document.getElementById("yes-button");
+let noButton = document.getElementById("no-button");
+
+yesButton.addEventListener("click", function () {
+  deleteAlbum();
+});
+
+noButton.addEventListener("click", function () {
+  toggleDiv();
+});
