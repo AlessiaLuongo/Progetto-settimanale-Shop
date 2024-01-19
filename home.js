@@ -1,6 +1,11 @@
 const myUrl = "https://striveschool-api.herokuapp.com/api/product/";
+if (!localStorage.getItem("carrello")) {
+  localStorage.setItem("carrello", JSON.stringify([]));
+}
 
 const generateProduct = function (data) {
+  let i = 0;
+
   data.forEach((cd) => {
     const newCol = document.createElement("div");
     newCol.classList.add("col", "col-12", "col-md-4", "col-lg-3", "g-5");
@@ -11,7 +16,7 @@ const generateProduct = function (data) {
       <h4 class="card-title">${cd.name}</h4>
           <p class="card-text">${cd.description}</p>
           <div>
-              <a href="#" class="btn btn-primary" id="buy-button">€ ${cd.price}</a>
+              <a href="#" class="buy-button btn btn-primary">€ ${cd.price}</a>
               <a href="./details.html?cdId=${cd._id}" class="btn btn-success"><i class="bi bi-caret-right"></i></i>
                Scopri di più 
               </a>
@@ -22,6 +27,14 @@ const generateProduct = function (data) {
 
     const mainRow = document.getElementById("main-row");
     mainRow.appendChild(newCol);
+
+    const buyNowButton = document.getElementsByClassName("buy-button");
+    buyNowButton[i].addEventListener("click", function () {
+      const carrello = localStorage.getItem("carrello");
+      carrello.push(cd._id);
+      localStorage.setItem("carrello", JSON.stringify(carrello));
+    });
+    i++;
   });
 };
 
@@ -49,5 +62,15 @@ const getProduct = function () {
       console.log(err);
     });
 };
+const carrello = document.getElementById("carrello-button");
+console.log(JSON.parse(localStorage.getItem("carrello"))[0]);
+carrello.addEventListener("click", function () {
+  console.log("ciao");
+  //   getCarrello();
+});
+const getCarrello = function () {};
+{
+  /* <li><a class="dropdown-item" href="#">Action</a></li> */
+}
 
 getProduct();
