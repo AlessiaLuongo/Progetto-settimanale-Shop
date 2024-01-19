@@ -1,0 +1,36 @@
+@import "scss/functions";
+@import "scss/variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
+
+$new-primary: rgb(46, 47, 51);
+$new-secondary: rgb(230, 23, 5);
+$new-warning: rgb(5, 230, 84);
+
+$new-theme-colors: (
+  "primary": $new-primary,
+  "secondary": $new-secondary,
+  "warning": $new-warning,
+);
+
+.card-body {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#ultimatum {
+  text-align: center;
+  border: 1px solid gray;
+  padding: 3em;
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 38%;
+  background-color: rgba(240, 248, 255, 0.721);
+}
+
+$theme-colors: map-merge($theme-colors, $new-theme-colors);
+@import "scss/bootstrap.scss";
